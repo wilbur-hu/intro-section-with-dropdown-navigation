@@ -1,15 +1,9 @@
 import arrowDown from "../assets/images/icon-arrow-down.svg";
 import arrowUp from "../assets/images/icon-arrow-up.svg";
 import { cn } from "../lib/utils.ts";
+import { MenuData, MenuItem } from "@/lib/model/menu.ts";
 
-export type MenuItem = {
-  icon?: string | null;
-  label: string;
-  subMenu?: MenuItem[];
-};
-export type MenuData = MenuItem[];
-
-export type MenuProps = {
+export type HorizontalMenuProps = {
   menu: MenuData;
   className?: string;
 };
@@ -40,7 +34,7 @@ export function Arrow({ item, className }: ArrowProps) {
   );
 }
 
-export function Menu({ menu, className }: MenuProps) {
+export function HorizontalMenu({ menu, className }: HorizontalMenuProps) {
   return (
     <ul className={cn("flex items-center justify-between", className)}>
       {menu.map((item) => {
@@ -79,7 +73,7 @@ function SubMenu({ subMenu, className }: SubMenuProps) {
     >
       {subMenu.map((item) => {
         return (
-          <li key={item.label} className="mt-[16px] flex first:mt-0">
+          <li key={item.label} className="mt-[16px] flex items-end first:mt-0">
             {item.icon && (
               <img
                 src={item.icon}
@@ -87,7 +81,7 @@ function SubMenu({ subMenu, className }: SubMenuProps) {
                 className="mr-[14px] h-[16px] w-[16px] max-w-none shrink-0"
               />
             )}
-            <span className="shrink-0 text-nowrap text-[14px] leading-[16px] text-medium-grey hover:text-black">
+            <span className="h-[14px] shrink-0 text-nowrap text-[14px] leading-[14px] text-medium-grey hover:text-black">
               {item.label}
             </span>
           </li>

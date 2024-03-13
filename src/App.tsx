@@ -1,4 +1,3 @@
-import { MenuData } from "./components/Menu.tsx";
 import iconTodo from "@assets/images/icon-todo.svg";
 import iconCalendar from "@assets/images/icon-calendar.svg";
 import iconReminders from "@assets/images/icon-reminders.svg";
@@ -7,6 +6,10 @@ import Header from "@/Header.tsx";
 import heroDesktop from "@assets/images/image-hero-desktop.png";
 import heroMobile from "@assets/images/image-hero-mobile.png";
 import Footer from "@/Footer.tsx";
+import { MenuData } from "@/lib/model/menu.ts";
+import { useState } from "react";
+import VerticalMenu from "@/components/VerticalMenu.tsx";
+import { cn } from "@/lib/utils.ts";
 
 function App() {
   const menu: MenuData = [
@@ -29,9 +32,22 @@ function App() {
     { label: "About" },
   ];
 
+  const [menuExpanded, setMenuExpanded] = useState(false);
+
   return (
     <>
-      <Header menuData={menu} />
+      <Header
+        menuData={menu}
+        onMenuButtonClicked={() => setMenuExpanded(true)}
+      />
+      <VerticalMenu
+        menuData={menu}
+        className={cn(
+          "absolute right-0 top-0 min-h-full w-[240px]",
+          menuExpanded ? "visible" : "invisible",
+        )}
+        onCloseButtonClicked={() => setMenuExpanded(false)}
+      />
       <div className="flex flex-col items-start justify-start md:flex-row">
         <div className="mx-[16px] mt-[47.75px] md:ml-[165px] md:mt-[171px]">
           <main className="flex flex-col items-center md:items-start">
@@ -46,9 +62,9 @@ function App() {
             </p>
 
             <button
-              className="text-almost-white hover:bg-almost-white mt-[24px] rounded-[15px] border bg-black
-                        pb-[13px] pl-[31px] pr-[28px] pt-[15px] text-[18px] font-bold leading-[28px]
-                        tracking-[-0.25px] hover:border-solid hover:border-black hover:text-black md:mt-[51px] "
+              className="mt-[24px] rounded-[15px] border bg-black pb-[13px] pl-[31px]
+                        pr-[28px] pt-[15px] text-[18px] font-bold leading-[28px] tracking-[-0.25px] text-almost-white
+                        hover:border-solid hover:border-black hover:bg-almost-white hover:text-black md:mt-[51px] "
             >
               Learn more
             </button>
