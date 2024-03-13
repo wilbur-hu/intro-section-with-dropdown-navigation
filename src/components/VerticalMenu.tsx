@@ -4,6 +4,7 @@ import arrowUp from "@assets/images/icon-arrow-up.svg";
 import iconCloseMenu from "@assets/images/icon-close-menu.svg";
 import { cn } from "@/lib/utils.ts";
 import { useState } from "react";
+import AuthButtons from "@/components/AuthButtons.tsx";
 
 export type VerticalMenuProps = {
   menuData: MenuData;
@@ -41,7 +42,7 @@ export default function VerticalMenu({
           />
         </button>
 
-        <ul className={cn("ml-[24px] mt-[32px] flex flex-col")}>
+        <ul className={cn("mx-[24px] mt-[32px] flex flex-col")}>
           {menuData.map((menuItem) => (
             <li
               key={menuItem.label}
@@ -51,6 +52,8 @@ export default function VerticalMenu({
             </li>
           ))}
         </ul>
+
+        <AuthButtons className="mx-[24px] mt-[32px]" />
       </div>
     </div>
   );

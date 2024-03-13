@@ -16,7 +16,7 @@ export default function Header({ menuData, onMenuButtonClicked }: HeaderProps) {
       <img
         src={logo}
         alt="logo"
-        className="mt-[24px] h-[34px] w-[87px] object-contain md:ml-[40x] md:mt-[24px]"
+        className="mt-[24px] h-[34px] w-[87px] object-contain md:ml-[40px] md:mt-[24px]"
       />
 
       <button
@@ -31,7 +31,7 @@ export default function Header({ menuData, onMenuButtonClicked }: HeaderProps) {
         className="ml-[60px] mt-[34px] w-[378px] max-md:hidden"
       />
 
-      <AuthButtons className="ml-auto mr-[40px] mt-[21px] max-md:hidden" />
+      <AuthButtons className="ml-auto mr-[40px] mt-[21px] h-[42px] max-md:hidden" />
     </header>
   );
 }

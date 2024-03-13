@@ -49,7 +49,7 @@ function App() {
         onCloseButtonClicked={() => setMenuExpanded(false)}
       />
       <div className="flex flex-col items-start justify-start md:flex-row">
-        <div className="mx-[16px] mt-[47.75px] md:ml-[165px] md:mt-[171px]">
+        <div className="mx-[16px] mt-[47.75px] md:ml-[165px] md:mr-0 md:mt-[171px]">
           <main className="flex flex-col items-center md:items-start">
             <h1 className="text-[36px] font-bold leading-[42px] tracking-[-0.5px] md:w-[540px] md:text-[80px] md:leading-[80px] md:tracking-[-1.11px]">
               Make
@@ -69,7 +69,7 @@ function App() {
               Learn more
             </button>
           </main>
-          <Footer className="mt-[48px] md:mt-[108px] md:h-[35.9px] md:w-[447.63px]" />
+          <Footer className="mt-[48px] md:mt-[108px] md:h-[35.9px] md:w-[477.63px]" />
         </div>
         <img
           src={heroDesktop}
